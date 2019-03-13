@@ -9,3 +9,54 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+#create an object with values
+```{r}
+a <- 2
+3 -> b
+c <- 47
+```
+
+```{r}
+65 + b + c
+```
+
+```{r}
+c
+```
+
+```{r}
+`c`
+```
+
+```{r}
+`107上學期平均成績` <- 84
+```
+
+# numeric class
+
+```{r}
+class(a)
+```
+
+```{r}
+a <- 5
+a2 <-5L
+```
+
+```{r}
+class(a2)
+```
+
+```{r}
+aVector<-c(5,6,7)
+a2Vector<-c(5L,6L,7L)
+```
+
+```{r}
+class(a2Vector)
+```
+
+```{r}
+class(aVector)
+```
+
