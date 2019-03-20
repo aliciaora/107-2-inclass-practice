@@ -23,3 +23,97 @@ dialogue <- c("小明說：'明天不用上課。'",
 cat(dialogue, sep="\n")
 ```
 
+```{r}
+aLogical <- c(T,TRUE,F,T,TRUE)
+class(aLogical)
+```
+
+```{r}
+# 加總向量內的所有元素值。
+sum(aLogical)
+```
+
+##Factor
+```{r}
+studentMajors1 <- factor(
+  c("經濟系", "經濟系", "法律系")
+)
+```
+
+```{r}
+studentMajors1
+```
+
+```{r}
+class(studentMajors1)
+```
+
+```{r}
+typeof(studentMajors1)
+```
+
+```{r}
+levels(studentMajors1)
+```
+
+```{r}
+as.integer(studentMajors1)
+```
+
+##Charactor
+```{r}
+studentMajors2 <-
+  c("經濟系", "經濟系", "法律系")
+```
+
+```{r}
+studentMajors2 
+```
+
+```{r}
+class(studentMajors2)
+```
+
+```{r}
+typeof(studentMajors2)
+```
+
+```{r}
+levels(studentMajors2)
+```
+
+```{r}
+as.integer(studentMajors2)
+```
+
+
+##練習
+```{r}
+birthplace <- factor(
+  c("台北市","台中市","台中市","台北市","台中市")
+)
+birthplace
+class(birthplace)
+typeof(birthplace)
+levels(birthplace)
+as.integer(birthplace)
+```
+
+
+##將物件(嘗試)轉換成數值
+```{r}
+stringInteger <- c("1","2","-11")
+class(stringInteger) # 無法進行數值運算
+```
+
+```{r}
+trueInteger <- as.integer(stringInteger)
+class(trueInteger) # 可以進行數值運算
+```
+
+```{r}
+stringInteger
+trueInteger
+sum(trueInteger)
+```
+
