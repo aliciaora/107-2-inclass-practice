@@ -117,3 +117,40 @@ trueInteger
 sum(trueInteger)
 ```
 
+
+
+##Date time
+```{r}
+library(lubridate)
+```
+
+```{r}
+dtObject<-ymd_hms("1970-01-01 00:02:53") 
+```
+
+```{r}
+dtObjectVector<-ymd_hms(
+  c("1970-01-01 00:02:53",
+    "1980-02-11 11:25:22")
+)
+```
+
+```{r}
+class(dtObject)
+class(dtObjectVector)
+```
+
+```{r}
+dtObject
+dtObjectVector
+```
+#電腦如何儲存時間(真正儲存是用double)
+```{r}
+typeof(dtObject)
+as.double(dtObject)
+as.integer(dtObject)
+```
+
+```{r}
+Sys.timezone()
+```
