@@ -39,7 +39,7 @@ plasticContainer <- list(
   blueBox=c(TRUE,FALSE,TRUE,TRUE)    # location 3
 )
 ```
-
+#[[.]]用來取出所要的「一個」元素
 ```{r}
 plasticContainer
 
@@ -85,10 +85,27 @@ studentRecord <-
   )
 
 studentRecord
-```
 
-```{r}
 studentRecord[[2]]
 studentRecord[[4]][[3]]
+```
+
+#[.]取一群元素 , 同時取兩個元素
+```{r}
+plasticContainer[c("greenBox","redBox")] 
+plasticContainer[c(3,2)]
+```
+
+#[.]會保有母層 , [[.]]取出元素不會有母層
+```{r}
+extract1 <- plasticContainer[c("greenBox")]
+extract2 <- plasticContainer[[c("greenBox")]]
+extract1
+extract2
+```
+#***只取一個用[[.]]***
+```{r}
+extract1[[1]][[1]]
+extract2[[1]]
 ```
 
