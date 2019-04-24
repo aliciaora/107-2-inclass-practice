@@ -36,6 +36,7 @@ StuList <- list(
   成績=c(80,60,90,70,50)
   )
 StuList 
+StuList[[2]][3]
 ```
 
 ```{r}
@@ -77,5 +78,38 @@ StuDF2
 
 ```{r}
 class(StuDF2$姓名)
+```
+
+```{r}
+as.data.frame(StuList) -> StuDF3
+
+class(StuDF3)
+StuDF3
+```
+
+```{r}
+as.data.frame(StuList,stringsAsFactors = F) -> StuDF4
+class(StuDF4)
+StuDF4
+```
+
+#[.R , .C] object extraction ; .R:代表哪幾列 / .C:代表哪幾行
+```{r}
+LETTERS
+chosenLETTERS <- LETTERS[1:15]
+m <- matrix(chosenLETTERS,5,3)
+m
+```
+
+```{r}
+chosenLETTERS[[9]]
+m[[9]]
+m[3,3]
+m[c(1,3),c(2,2)]
+```
+#若只用[.] extraction, 如何取出matObj1[c(1,5),c(2,3)]的元素值？
+```{r}
+m[c(T,F,F,T,F),c(F,T,T)]
+m[c(1,4),c(F,T,T)]
 ```
 
