@@ -9,6 +9,8 @@ Mat1 <- matrix(
   c(1:6), 2,3
 )
 Mat1
+class(Mat1)
+typeof(Mat1)
 ```
 
 ```{r}
@@ -48,5 +50,32 @@ StuDF
 ```{r}
 class(StuDF)
 typeof(StuDF)
+```
+
+```{r}
+StuDF[[2]][[3]]
+```
+#data.frame()遇到變數輸入為character class時，內定會被轉成factor
+```{r}
+class(StuDF$姓名)
+```
+
+```{r}
+StuDF$姓名 <- as.character(StuDF$姓名)
+class(StuDF$姓名)
+```
+#取消內定character為factor的方式
+```{r}
+StuDF2 <- data.frame(
+  學號=c(172,214,322,425,517),
+  姓名=c("小明","大雄","胖虎","小新","大白"),
+  成績=c(80,60,90,70,50),
+  stringsAsFactors = FALSE
+  )
+StuDF2 
+```
+
+```{r}
+class(StuDF2$姓名)
 ```
 
