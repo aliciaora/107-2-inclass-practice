@@ -113,3 +113,27 @@ m[c(T,F,F,T,F),c(F,T,T)]
 m[c(1,4),c(F,T,T)]
 ```
 
+
+
+
+
+
+###課堂練習
+```{r}
+library(readr)
+classSurvey <- read_csv("https://raw.githubusercontent.com/tpemartin/github-data/master/classSurvey.csv")
+```
+取出"性別","本學期學分數"
+```{r}
+classSurvey[,4:5] #1
+classSurvey[,c(4,5)] #2
+classSurvey[,c(F,F,F,T,T,F)] #3
+classSurvey[c(1:60),4:5] #4
+classSurvey[c(1:60),c(4,5)] #5
+classSurvey[c(1:60),c(F,F,F,T,T,F)] #6
+```
+#子樣本(性別為女)
+```{r}
+classSurvey[logical_index,]
+```
+
