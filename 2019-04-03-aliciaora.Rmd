@@ -41,7 +41,6 @@ class(currency)
 currency <- as.factor(currency)
 #新物件 / 舊物件
 class(currency)
-levels(currency)
 ```
 
 length():數向量內的元素個素(向量長度)
