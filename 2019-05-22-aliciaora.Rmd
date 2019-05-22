@@ -123,7 +123,12 @@ sample(99:103,15,replace = T)-> yy
 sample(1:12,15,replace=T)-> mm
 str_c("民國",str_pad(yy,3,"left","0"),"年",mm,"月") -> twDates_New
 twDates_New
+
+# date_convert_twYM(twDates_New)
+# date_convert_twYM(twDates_New,dd="04")
 ```
+
+
 
 dd沒有預設值
 ```{r}
@@ -145,7 +150,8 @@ date_convert_twYM <- function(twdate,dd="01"){
   yyyymmdd <- ymd(str_c(yyyy,mm,dd,sep="-"))
   return(yyyymmdd)
 }
-date_convert_twYM("民國100年10月")
+date_convert_twYM(twDates_New)
+date_convert_twYM(twDates_New,dd="04")
 ```
 
 
