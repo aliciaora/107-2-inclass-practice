@@ -129,7 +129,6 @@ twDates_New
 ```
 
 
-
 dd沒有預設值
 ```{r}
 date_convert_twYM <- function(twdate){
@@ -142,7 +141,7 @@ date_convert_twYM <- function(twdate){
 date_convert_twYM(twDates_New)
 ```
 
-dd有預設值 (dd=01 <- dd是一個數字 ; dd="01" <- dd是一個character)
+dd有預設值 (dd=01 <- dd是一個numeric ; dd="01" <- dd是一個character)
 ```{r}
 date_convert_twYM <- function(twdate,dd="01"){
   yyyy<-as.integer(str_extract(twdate,"(?<=(民國))[:digit:]+"))+1911
