@@ -30,7 +30,21 @@ invoiceList$UTC時間[tpLogical] <- with_tz(tpDateTime,tz="UTC")
 invoiceList
 ```
 
-課堂練習
+```{r}
+tzchange <- function(fromz,toZ){
+  invoiceList$訂單時區 == fromz -> Logical
+  invoiceList$Logical <- Logical
+
+  DateTime<-ymd_hms(invoiceList$訂單時間.以訂單時區顯示.[Logical],tz=fromz)
+
+  invoiceList$UTC時間[Logical] <- with_tz(nyDateTime,tzone=toZ)
+  return(invoiceList$UTC時間[Logical])
+}
+tzchange("America/New_York","Asia/Taipei")
+```
+
+
+*8.1.1 範例2*
 ```{r}
 library(readr)
 transcriptDataFinal <- read_csv("https://raw.githubusercontent.com/tpemartin/github-data/master/transcriptDataFinal.csv")
@@ -54,8 +68,8 @@ gpa_fun("9efW9aea5")
 
 
 
-
-
+課堂練習
+*##Function轉換時區*
 ```{r}
 ymd_hms_tzChange("1973-02-21 12:05:22","America?New _York","Asia/Taipei")
 ```
@@ -71,20 +85,84 @@ toDateTime   #output
 ```{r}
 ymd_hms_tzChange <- function(input,fromTzone,toTzone){
   ymd_hms(input,tz=fromTzone) -> fromDateTime 
-  with_tz(fromDateTime,tz=toTzone) ->toDateTime
+  with_tz(fromDateTime,tzone=toTzone) ->toDateTime
   return(toDateTime) 
 }
+
 ymd_hms_tzChange("1973-02-21 12:05:22","America/New_York","Asia/Taipei")
 ```
 
 
 
 
+民國年月
+```{r}
+library(stringr)
+sample(99:103,15,replace = T)-> yy
+sample(1:12,15,replace=T)-> mm
+str_c("民國",str_pad(yy,3,"left","0"),"年",mm,"月") -> twDates
+twDates
+```
+
+[:digit:]+ -> 取出數字們(0~9) 
+```{r}
+library(stringr); library(lubridate)
+yyyy<-as.integer(str_extract(twDates,"(?<=(民國))[:digit:]+"))+1911
+mm<-str_extract(twDates,"[:digit:]+(?=月)")
+yyyymmdd <- ymd(str_c(yyyy,mm,"01",sep="-"))
+yyyymmdd
+```
 
 
+若要常常轉換不同民國年月成西元date，以上述程序為例，何者為input？何者為output?
+
+請寫一個函數其名稱為date_convert_twYM，且date_convert_twYM(x)可以把一個民國年月字串物件x轉成date time class的西元年月日物件輸出。
+
+```{r}
+sample(99:103,15,replace = T)-> yy
+sample(1:12,15,replace=T)-> mm
+str_c("民國",str_pad(yy,3,"left","0"),"年",mm,"月") -> twDates_New
+twDates_New
+```
+
+dd沒有預設值
+```{r}
+date_convert_twYM <- function(twdate){
+  yyyy<-as.integer(str_extract(twdate,"(?<=(民國))[:digit:]+"))+1911
+  mm<-str_extract(twdate,"[:digit:]+(?=月)")
+  yyyymmdd <- ymd(str_c(yyyy,mm,"01",sep="-"))
+  return(yyyymmdd)
+}
+
+date_convert_twYM(twDates_New)
+```
+
+dd有預設值
+```{r}
+date_convert_twYM <- function(twdate,dd="01"){
+  yyyy<-as.integer(str_extract(twdate,"(?<=(民國))[:digit:]+"))+1911
+  mm<-str_extract(twdate,"[:digit:]+(?=月)")
+  yyyymmdd <- ymd(str_c(yyyy,mm,dd,sep="-"))
+  return(yyyymmdd)
+}
+date_convert_twYM("民國100年10月")
+```
 
 
+*8.1.2*
 
+##預設
+```{r}
+utility_cobb_douglass2 <- function(x,y,.alpha=0.5,.beta=0.5){
+  utilValue <- x^.alpha*y^.beta
+  return(utilValue)
+}
+```
+
+```{r}
+utility_cobb_douglass2(1,2) # 使用預設值
+utility_cobb_douglass2(1,2,0.5,0.8) # 自定參數值
+```
 
 
 
