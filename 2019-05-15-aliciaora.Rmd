@@ -173,7 +173,7 @@ transcriptDataFinal <- read_csv("https://raw.githubusercontent.com/tpemartin/git
 
 算出學號“92aS67fee”的平均成績（GPA）的程序
 ```{r}
-studentID <-"92aS67fee" 
+studentID <-"92aS67fee"
 transcriptDataFinal$學號==studentID -> logiChosenStudent
 sum(transcriptDataFinal$學期成績[logiChosenStudent]*
   transcriptDataFinal$學分數[logiChosenStudent])/
