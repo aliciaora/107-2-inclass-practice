@@ -1,0 +1,30 @@
+---
+title: "Untitled"
+author: "Alicia"
+date: "2019年6月12日"
+output: html_document
+---
+
+# Sequence
+```{r}
+load(url("https://www.dropbox.com/s/duh5aaqgl2f5m3z/loopTranscriptData.Rda?raw=1"))
+studentIds <- unique(transcriptDataFinal$學號) # 全部可能學號
+studentIds5 <- studentIds[1:5] # 前5筆學號
+```
+
+任務：針對studentIds5裡的[每一個]學號進行print()
+#sequence source
+```{r}
+studentIds5
+```
+
+
+```{r}
+seq_along(studentIds5)
+```
+
+```{r}
+length(studentIds5)
+1:length(studentIds5)
+```
+
