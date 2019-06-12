@@ -326,6 +326,7 @@ committer_i <- commitHistory[[i]]$commit$committer$name
 commitDate_i <- commitHistory[[i]]$commit$committer$date
 
 (author_i==committer_i) -> saveSameLogi[[i]]
+
 list(
   author=author_i,
   committer=committer_i,
